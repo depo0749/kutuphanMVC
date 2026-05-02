@@ -1,0 +1,395 @@
+@{
+  ViewData["Title"] = "Hakkimizda";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hakkımızda - Şehir Kütüphanesi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1516979187457-637abb4f9356');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 0;
+    }
+
+    .feature-card {
+      transition: all 0.3s ease;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 100%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-section {
+      background-color: #f8f9fa;
+    }
+
+    /* Navbar siyah yapıldı */
+    .navbar-custom {
+      background-color: #000000 !important;
+    }
+
+    /* Değerlerimiz Kartları için Özel Stil - Siyah çerçeve */
+    .value-card {
+      border: 2px solid #000000 !important;
+      border-radius: 12px !important;
+      padding: 20px;
+      margin: 10px;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+      border-color: #333333 !important;
+      background-color: #f8f9fa;
+    }
+
+    /* İkonlar siyah yapıldı */
+    .value-icon {
+      font-size: 2.5rem;
+      color: #000000;
+      margin-bottom: 15px;
+    }
+
+    /* Misyon/Vizyon ikonları siyah */
+    .mission-icon {
+      color: #000000;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .nav-pills .nav-link.active {
+      background-color: #000000;
+    }
+
+    footer {
+      background-color: #212529;
+    }
+
+    .btn-1,
+    .btn-1 *,
+    .btn-1 :after,
+    .btn-1 :before,
+    .btn-1:after,
+    .btn-1:before {
+      border: 0 solid;
+      box-sizing: border-box;
+    }
+
+    .btn-1 {
+      scale: 0.5;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: button;
+      background-color: #000;
+      background-image: none;
+      color: #fff;
+      cursor: pointer;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-size: 100%;
+      line-height: 1.5;
+      margin: 0;
+      -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+      padding: 0;
+    }
+
+    .btn-1:disabled {
+      cursor: default;
+    }
+
+    .btn-1:-moz-focusring {
+      outline: auto;
+    }
+
+    .btn-1 svg {
+      display: block;
+      vertical-align: middle;
+    }
+
+    .btn-1 [hidden] {
+      display: none;
+    }
+
+    .btn-1 {
+      border: 1px solid;
+      border-radius: 999px;
+      box-sizing: border-box;
+      display: block;
+      font-weight: 900;
+      overflow: hidden;
+      padding: 1.2rem 3rem;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .btn-1 .original {
+      background: #fff;
+      color: #000;
+      display: grid;
+      inset: 0;
+      place-content: center;
+      position: absolute;
+      transition: transform 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    .btn-1:hover .original {
+      transform: translateY(100%);
+    }
+
+    .btn-1 .letters {
+      display: inline-flex;
+    }
+
+    .btn-1 span {
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: transform 0.3s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.3s;
+    }
+
+    .btn-1 span:nth-child(2n) {
+      transform: translateY(15px);
+    }
+
+    .btn-1:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-1:hover span:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .btn-1:hover span:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    .btn-1:hover span:nth-child(4) {
+      transition-delay: 0.3s;
+    }
+
+    .btn-1:hover span:nth-child(5) {
+      transition-delay: 0.4s;
+    }
+
+    .btn-1:hover span:nth-child(6) {
+      transition-delay: 0.5s;
+    }
+
+    /* btn-2 */
+
+    .btn-2 {
+      scale: 0.5;
+      padding: 0 50px;
+      width: 160px;
+      height: 64px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 32px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .btn-2:hover {
+      color: black;
+    }
+
+    .btn-2:after {
+      content: "";
+      background: white;
+      position: absolute;
+      z-index: -1;
+      left: -20%;
+      right: -20%;
+      top: 0;
+      bottom: 0;
+      transform: skewX(-45deg) scale(0, 1);
+      transition: all 0.5s;
+    }
+
+    .btn-2:hover:after {
+      transform: skewX(-45deg) scale(1, 1);
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+
+
+    .btn-gradient {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation - Siyah navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><strong>Şehir</strong> <span class="text-danger">Kütüphanesi</span></a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Anasayfa">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Hakkimizda">Kitaplar</a></li>
+          <a type="button" class="btn btn-warning" asp-controller="Giris" asp-action="ALogin">Giris</a>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  <div class="container">
+    <main role="main" class="pb-3">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container text-center">
+          <h1 class="display-4 fw-bold mb-4">Şehir Kütüphanesi</h1>
+          <p class="lead mb-5">Bilgiye erişimde öncü, toplumun gelişiminde aktif bir kurum</p>
+          <a href="#about" class="btn btn-light btn-lg px-4">Keşfet</a>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-5 about-section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                  <h2 class="text-center mb-5 fw-bold">Hakkımızda</h2>
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <img src="https://images.unsplash.com/photo-1589998059171-988d887df646" alt="Kütüphane içi"
+                        class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                      <p class="lead">Şehir Kütüphanesi olarak 2005 yılından bu yana hizmet veriyoruz.</p>
+                      <p>Toplumun her kesimine bilgiye erişim fırsatı sunmayı hedefliyoruz. Geleneksel kütüphanecilik
+                        anlayışını dijitalleşme ile harmanlayarak hem fiziksel hem de dijital kaynakları bir arada
+                        sunuyoruz.</p>
+                      <p>Okuma kültürünü yaygınlaştırmak, bilgiye dayalı karar alma süreçlerini desteklemek ve yaşam
+                        boyu
+                        öğrenmeyi teşvik etmek amacıyla çeşitli etkinlikler düzenliyoruz.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission & Vision -->
+      <section class="py-5">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card feature-card h-100 shadow">
+                <div class="card-body text-center p-4">
+                  <i class="bi bi-bullseye mission-icon"></i>
+                  <h3>Misyonumuz</h3>
+                  <p>Toplumun bilgiye erişimini kolaylaştırmak, her yaştan insanı okumaya ve öğrenmeye teşvik etmek.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card feature-card h-100 shadow">
+                <div class="card-body text-center p-4">
+                  <i class="bi bi-eye mission-icon"></i>
+                  <h3>Vizyonumuz</h3>
+                  <p>Teknolojiyi etkin kullanarak dijital ve fiziksel kaynaklara herkesin ulaşabileceği bir bilgi
+                    merkezi
+                    olmak.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Values -->
+      <section class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-5 fw-bold">Değerlerimiz</h2>
+          <div class="row g-4">
+            <div class="col-md-3">
+              <div class="value-card text-center h-100">
+                <i class="bi bi-shield-check value-icon"></i>
+                <h4>Güvenilirlik</h4>
+                <p>Kullanıcılarımıza doğrulanmış ve güvenilir bilgi sunarız.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="value-card text-center h-100">
+                <i class="bi bi-globe value-icon"></i>
+                <h4>Erişilebilirlik</h4>
+                <p>Herkesin bilgiye eşit ve kolayca ulaşmasını sağlarız.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="value-card text-center h-100">
+                <i class="bi bi-people value-icon"></i>
+                <h4>Toplumsal Katkı</h4>
+                <p>Kültürel ve sosyal gelişime katkı sunarız.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="value-card text-center h-100">
+                <i class="bi bi-lightbulb value-icon"></i>
+                <h4>Yenilikçilik</h4>
+                <p>Teknolojiyi kullanarak öğrenme süreçlerini destekleriz.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Footer -->
+  <footer class="py-4 text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Şehir Kütüphanesi</h5>
+          <p>Bilgiye açılan kapınız</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p class="mb-0">&copy; 2025 Şehir Kütüphanesi. Tüm hakları saklıdır.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
