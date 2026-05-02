@@ -1,0 +1,369 @@
+@{
+  ViewData["Title"] = "Anasayfa";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Şehir Kütüphanesi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .newsletter input {
+      max-width: 400px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"><strong>Şehir</strong> <span class="text-danger">Kütüphanesi</span></a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Anasayfa">Ana Sayfa</a></li>
+          <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Hakkimizda">Kitaplar</a></li>
+          <a type="button" class="btn btn-warning" asp-controller="Giris" asp-action="KLogin">Giris</a>
+        </ul>
+      </div>
+    </div>
+
+
+  </nav>
+
+
+  <style>
+    .btn-1,
+    .btn-1 *,
+    .btn-1 :after,
+    .btn-1 :before,
+    .btn-1:after,
+    .btn-1:before {
+      border: 0 solid;
+      box-sizing: border-box;
+    }
+
+    .btn-1 {
+      scale: 0.5;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: button;
+      background-color: #000;
+      background-image: none;
+      color: #fff;
+      cursor: pointer;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+        Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-size: 100%;
+      line-height: 1.5;
+      margin: 0;
+      -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+      padding: 0;
+    }
+
+    .btn-1:disabled {
+      cursor: default;
+    }
+
+    .btn-1:-moz-focusring {
+      outline: auto;
+    }
+
+    .btn-1 svg {
+      display: block;
+      vertical-align: middle;
+    }
+
+    .btn-1 [hidden] {
+      display: none;
+    }
+
+    .btn-1 {
+      border: 1px solid;
+      border-radius: 999px;
+      box-sizing: border-box;
+      display: block;
+      font-weight: 900;
+      overflow: hidden;
+      padding: 1.2rem 3rem;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .btn-1 .original {
+      background: #fff;
+      color: #000;
+      display: grid;
+      inset: 0;
+      place-content: center;
+      position: absolute;
+      transition: transform 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    .btn-1:hover .original {
+      transform: translateY(100%);
+    }
+
+    .btn-1 .letters {
+      display: inline-flex;
+    }
+
+    .btn-1 span {
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: transform 0.3s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.3s;
+    }
+
+    .btn-1 span:nth-child(2n) {
+      transform: translateY(15px);
+    }
+
+    .btn-1:hover span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-1:hover span:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .btn-1:hover span:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    .btn-1:hover span:nth-child(4) {
+      transition-delay: 0.3s;
+    }
+
+    .btn-1:hover span:nth-child(5) {
+      transition-delay: 0.4s;
+    }
+
+    .btn-1:hover span:nth-child(6) {
+      transition-delay: 0.5s;
+    }
+
+    /* btn-2 */
+
+    .btn-2 {
+      scale: 0.5;
+      padding: 0 50px;
+      width: 160px;
+      height: 64px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 32px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .btn-2:hover {
+      color: black;
+    }
+
+    .btn-2:after {
+      content: "";
+      background: white;
+      position: absolute;
+      z-index: -1;
+      left: -20%;
+      right: -20%;
+      top: 0;
+      bottom: 0;
+      transform: skewX(-45deg) scale(0, 1);
+      transition: all 0.5s;
+    }
+
+    .btn-2:hover:after {
+      transform: skewX(-45deg) scale(1, 1);
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+
+
+    .btn-gradient {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
+    }
+  </style>
+  <div class="container">
+    <main role="main" class="pb-3">
+
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-content">
+          <h1 class="display-5 fw-bold">Bilginin Kapıları Burada Açılıyor</h1>
+          <p class="lead">Şehir Kütüphanesi'ne hoş geldiniz. Binlerce kitap, dergi ve dijital kaynağa ücretsiz erişim
+            sağlayın.</p>
+          <a href="#" class="btn btn-danger mt-3">Üye Ol</a>
+        </div>
+      </section>
+
+      <!-- Öne Çıkan Kitaplar -->
+      <section class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4">Öne Çıkan Kitaplar</h2>
+          <div class="row g-4">
+            <!-- Kitaplar -->
+            <div class="col-md-3">
+              <div class="card h-100">
+                <img src="https://upload.wikimedia.org/wikipedia/tr/3/3f/Bülbülü_Öldürmek.jpg" class="card-img-top"
+                  alt="Bülbülü Öldürmek">
+                <div class="card-body">
+                  <h5 class="card-title">Bülbülü Öldürmek</h5>
+                  <p class="card-text">Amerikan edebiyatının klasiklerinden, ırkçılık ve adaletsiz temaları unutulmaz
+                    bir
+                    eser.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card h-100">
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/1984first.jpg" class="card-img-top" alt="1984">
+                <div class="card-body">
+                  <h5 class="card-title">1984</h5>
+                  <p class="card-text">Distopik bir gelecekte totaliter rejim altında geçen etkileyici bir hikâye.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card h-100">
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/6e/Littleprince.JPG" class="card-img-top"
+                  alt="Küçük Prens">
+                <div class="card-body">
+                  <h5 class="card-title">Küçük Prens</h5>
+                  <p class="card-text">Büyüklere hitap eden bu çocuk kitabı, hayatın anlamına dair derin mesajlar
+                    içerir.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card h-100">
+                <img src="https://upload.wikimedia.org/wikipedia/tr/4/4d/Suç_ve_Ceza.png" class="card-img-top"
+                  alt="Suç ve Ceza">
+                <div class="card-body">
+                  <h5 class="card-title">Suç ve Ceza</h5>
+                  <p class="card-text">Raskolnikov’un içsel dünyası ve vicdanı hesaplaşmaları.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hizmetler -->
+      <section class="py-5 bg-dark text-white">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4 mb-4">
+              <div class="bg-secondary p-4 rounded">
+                <h5>Kitap Ödünç Alma</h5>
+                <p>Geniş koleksiyonumuzdan kitapları ödünç alabilir, belirli sürelerde evinizde okuyabilirsiniz.</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="bg-secondary p-4 rounded">
+                <h5>Dijital Kütüphane</h5>
+                <p>Online platformumuz üzerinden e-kitaplara, dergilere ve akademik kaynaklara erişim sağlayın.</p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="bg-secondary p-4 rounded">
+                <h5>Kültürel Etkinlikler</h5>
+                <p>Yazar söyleşileri, kitap kulüpleri ve çocuklara yönelik etkinliklerle kültür dünyasına adım atın.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bülten -->
+      <section class="py-5 newsletter bg-light text-center">
+        <div class="container">
+          <h4 class="mb-3">Haber Bültenine Kaydolun</h4>
+          <p>Yeni gelen kitaplar, etkinlikler ve özel duyurular hakkında bilgi almak için e-posta listemize katılın.</p>
+          <form class="d-flex justify-content-center">
+            <input type="email" class="form-control me-2" placeholder="E-posta adresiniz">
+            <button type="submit" class="btn btn-danger">Abone Ol</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container d-md-flex justify-content-between">
+      <div>
+        <h5>Şehir Kütüphanesi</h5>
+        <p>Bilişye erişimi kolaylaştırmak ve okuma kültürünü yaygınlaştırmak için hizmet veriyoruz.</p>
+      </div>
+      <div>
+        <h6>Hızlı Linkler</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Ana Sayfa</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Kitaplar</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Etkinlikler</a></li>
+          <li><a href="#" class="text-white text-decoration-none">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>İletişim</h6>
+        <p>Cumhuriyet Cad. No:123, Şehir<br>Tel: (123) 456 78 90<br>Email: info@sehirkutuphanesi.org</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
