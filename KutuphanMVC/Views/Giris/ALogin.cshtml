@@ -1,0 +1,166 @@
+@{
+    ViewData["Title"] = "ALogin";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehir Kütüphanesi - Giriş Yap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .library-header {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .nav-link:hover {
+            color: white;
+        }
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .login-title {
+            color: #343a40;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .btn-library {
+            background-color: #eb1010;
+            border-color: #eb1010;
+            color: white;
+        }
+        .hr:hover{
+            color: red;
+        }
+        .hl:hover{
+            color: red;
+        }
+        .btn-library:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+            color: white;
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#"><strong>Şehir</strong> <span class="text-danger">Kütüphanesi</span></a>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Anasayfa">Ana Sayfa</a></li>
+         <li class="nav-item"><a class="nav-link"asp-controller="Home" asp-action="Hakkimizda">Kitaplar</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="login-container">
+            <h2 class="login-title">Hesabınıza Giriş Yapın</h2>
+            
+            <form method="post" >
+                 @if(ViewBag.Hata != null)
+    {
+        <p style="color:red;">@ViewBag.Hata</p>
+    }
+                <div class="mb-3">
+                    <label for="text" class="form-label">Admin Adı</label>
+                    <input type="text" class="form-control" name="adminad" id="ADminAd" placeholder="Admin Adı" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Şifre</label>
+                    <input type="password" class="form-control "name="sifre" id="password" required>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="remember">
+                    <label class="form-check-label" for="remember">Beni hatırla</label>
+                </div>
+                
+                <input type="submit" class="btn btn-library w-100" value="Giriş Yap">
+                
+                <div class="text-center mt-3">
+                    <a href="#" class="text-decoration-none">Şifremi unuttum</a>
+                </div>
+                 
+            </form>
+            
+            <hr class="my-4">
+            
+            <div class="login-container">
+             <a asp-controller="Giris" asp-action="KLogin"><input type="button" class="btn btn-library w-100" value="Kullanici Girişi" ></a> 
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="mb-3">Şehir <span style="color:red;">Kütüphanesi</span> </h5>
+                    <p class=" hr">Bilgiye erişimi kolaylaştırmak ve okuma kültürünü yaygınlaştırmak için hizmet veriyoruz.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3  hl">Hızlı Linkler</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none  hr">Ana Sayfa</a></li>
+                        <li><a href="#" class="text-white text-decoration-none  hr">Kitaplar</a></li>
+                        <li><a href="#" class="text-white text-decoration-none  hr">Etkinlikler</a></li>
+                        <li><a href="#" class="text-white text-decoration-none  hr">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="mb-3  hl">Hizmetler</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none  hr">Kitap Ödünç Alma</a></li>
+                        <li><a href="#" class="text-white text-decoration-none  hr">Dijital Kütüphane</a></li>
+                        <li><a href="#" class="text-white text-decoration-none  hr">Araştırma Yardımı</a></li>
+                        <li><a href="#" class="text-white text-decoration-none  hr">Çocuk Programları</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 ">
+                    <h5 class="mb-3   hr">İletişim</h5>
+                    <address>
+                        Cumhuriyet Cad. No:123, Şehir<br style="color: red;">
+                        Tel: (123) 456 78 90<br>
+                        Email: info@sehrkutuphanesi.org
+                    </address>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
